@@ -37,8 +37,8 @@ SERVE_STATIC_FILES = True
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',') if os.getenv('ALLOWED_HOSTS') else ['*']
 
 # Configuration Stripe (vos paramètres conservés)
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'pk_test_51RhuQvCX4t4MFZAnNLKXnhGgdUHH4GxznjRR0qS4FlVpaQtMqjZGwapatYBKzw5FFIjDuO23EMKSxFsLL9fw1QRz00k0szoa4m')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'sk_test_51RhuQvCX4t4MFZAnHEgntOBaZsw1l9wUa7LHCf9r1o8arzpGJwjw4yvgy557MVyefQpfQASBa9UzGjU7VKbZqNUt00ZK67XXxN')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 # Commission de la plateforme (10%) - votre paramètre conservé
 COMMISSION_PLATEFORME = 0.10
