@@ -1,0 +1,1034 @@
+/* Custom Jazzmin Theme Styles */
+
+/* Variables des couleurs */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --text-color: #2c3e50;
+  --bg-light: #ecf0f1;
+  --bg-dark: #34495e;
+  --success-color: #27ae60;
+  --warning-color: #f1c40f;
+  --transition-speed: 0.3s;
+}
+
+/* Style général */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  transition: background-color var(--transition-speed);
+}
+
+/* Header principal */
+.main-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-brand::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width var(--transition-speed);
+}
+
+.navbar-brand:hover::after {
+  width: 100%;
+}
+
+/* Sidebar */
+.main-sidebar {
+  background: var(--bg-dark);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-sidebar .nav-item {
+  margin: 5px 0;
+  transition: transform var(--transition-speed);
+}
+
+.nav-sidebar .nav-item:hover {
+  transform: translateX(5px);
+}
+
+.nav-link {
+  border-radius: 8px;
+  margin: 0 10px;
+  transition: all var(--transition-speed);
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link i {
+  transition: transform var(--transition-speed);
+}
+
+.nav-link:hover i {
+  transform: scale(1.2);
+}
+
+/* Cards et conteneurs */
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Boutons */
+.btn {
+  border-radius: 8px;
+  padding: 8px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-speed);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Tableaux */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.table tbody tr {
+  transition: background-color var(--transition-speed);
+}
+
+.table tbody tr:hover {
+  background-color: #3f8287;
+}
+
+/* Formulaires */
+.form-control {
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  padding: 10px 15px;
+  transition: all var(--transition-speed);
+}
+
+.form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* Animations pour les notifications */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.alert {
+  animation: slideIn 0.5s ease forwards;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading spinner personnalisé */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--bg-light);
+  border-top: 4px solid var(--secondary-color);
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+/* Mode sombre */
+[data-theme="dark"] {
+  --text-color: #ecf0f1;
+  --bg-light: #2c3e50;
+  --bg-dark: #1a252f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-speed);
+  }
+  
+  .sidebar-open .main-sidebar {
+    transform: translateX(0);
+  }
+  
+  .card {
+    margin-bottom: 15px;
+  }
+}
+
+
+
+
+
+/* ... (styles précédents restent identiques jusqu'au header) ... */
+
+/* Logo Animation et Style */
+.brand-logo {
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.brand-logo img {
+  max-height: 40px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+}
+
+.brand-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-link::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  to {
+    left: 100%;
+  }
+}
+
+/* Style du Profil */
+.user-panel {
+  position: relative;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin: 15px;
+  transition: all 0.3s ease;
+}
+
+.user-panel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.user-panel img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-color);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.user-panel:hover img {
+  transform: rotate(360deg);
+  border-color: var(--accent-color);
+}
+
+.user-panel .info {
+  padding-left: 15px;
+}
+
+.user-panel .info a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+
+.user-panel .info a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.user-panel .info a:hover::after {
+  width: 100%;
+}
+
+/* Menus Déroulants */
+.dropdown-menu {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  animation: dropdownFade 0.3s ease forwards;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-light);
+  padding-left: 25px;
+}
+
+.dropdown-item i {
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-item:hover i {
+  transform: scale(1.2);
+}
+
+/* Indicateur de menu actif */
+.dropdown-item.active,
+.dropdown-item:active {
+  background: var(--secondary-color);
+  color: white;
+}
+
+/* Séparateur de dropdown */
+.dropdown-divider {
+  border-color: rgba(0, 0, 0, 0.1);
+  margin: 5px 0;
+}
+
+/* Badge de notification dans le dropdown */
+.dropdown-item .badge {
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover .badge {
+  transform: scale(1.1);
+}
+
+/* Mode sombre pour les dropdowns */
+[data-theme="dark"] .dropdown-menu {
+  background: rgba(44, 62, 80, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: #ecf0f1;
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dropdown-divider {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* Header du profil utilisateur */
+.user-header {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  padding: 20px;
+  border-radius: 15px 15px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.user-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+  animation: backgroundShift 30s linear infinite;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+.user-header .user-image {
+  width: 90px;
+  height: 90px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.user-header:hover .user-image {
+  transform: scale(1.1) rotate(5deg);
+  border-color: white;
+}
+
+.user-header .user-name {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: inline-block;
+}
+
+.user-header .user-name::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.4s ease;
+}
+
+.user-header:hover .user-name::after {
+  width: 100%;
+}
+
+/* Nouveaux styles pour les dropdowns */
+.dropdown-menu {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform-origin: top;
+  animation: dropdownOpen 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes dropdownOpen {
+  from {
+    opacity: 0;
+    transform: perspective(500px) rotateX(-15deg) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(500px) rotateX(0) translateY(0);
+  }
+}
+
+.dropdown-item {
+  margin: 5px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 8px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.dropdown-item:hover::before {
+  opacity: 1;
+}
+
+.dropdown-item:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  margin-right: 10px;
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-item:hover i {
+  transform: scale(1.2) rotate(15deg);
+}
+
+/* Nouveaux badges animés */
+.badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  animation: badgeShine 2s infinite;
+}
+
+@keyframes badgeShine {
+  from { transform: rotate(45deg) translateX(-100%); }
+  to { transform: rotate(45deg) translateX(100%); }
+}
+
+/* Mode sombre amélioré */
+[data-theme="dark"] .dropdown-menu {
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .user-header {
+  background: linear-gradient(135deg, #3730a3, #6366f1);
+}
+
+
+/* Logo de connexion */
+.login-logo {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.login-logo img {
+  max-height: 200px !important; /* Force la hauteur maximale */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Logo dans la barre latérale */
+.brand-link .brand-image {
+  max-height: 25px !important;
+  width: auto;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Nouveaux styles pour les dropdowns */
+.dropdown-menu {
+  background: linear-gradient(145deg, #2a2a72, #009ffd);
+  backdrop-filter: blur(10px);
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  margin-top: 5px;
+}
+
+/* Items du dropdown */
+.dropdown-item {
+  background: rgba(225, 42, 42, 0.1);
+  margin: 4px 0;
+  border-radius: 6px;
+  color: white !important;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
+}
+
+/* Style spécial pour les actions destructives */
+.dropdown-item.text-danger {
+  background: rgba(220, 53, 69, 0.2);
+}
+
+.dropdown-item.text-danger:hover {
+  background: rgba(220, 53, 69, 0.3);
+}
+
+/* Séparateur dans les dropdowns */
+.dropdown-divider {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 6px 0;
+}
+
+/* Texte et icônes dans les dropdowns */
+.dropdown-item i {
+  color: rgba(255, 255, 255, 0.9);
+  margin-right: 8px;
+}
+
+.dropdown-menu .dropdown-header {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 12px;
+}
+
+/* Mode sombre */
+[data-theme="dark"] .dropdown-menu {
+  background: linear-gradient(145deg, #1a1a3c, #006699);
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Animation d'ouverture du dropdown */
+@keyframes dropdownOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-menu.show {
+  animation: dropdownOpen 0.3s ease forwards;
+}
+
+
+/* Ajustements du logo */
+.brand-logo {
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.brand-logo img {
+  max-height: 30px; /* Réduction de la taille du logo */
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Masquer la version de Jazzmin */
+.brand-text small {
+  display: none !important;
+}
+
+/* Style amélioré pour les dropdowns d'actions */
+.actions-dropdown .dropdown-menu {
+  min-width: 200px;
+  padding: 8px;
+  margin-top: 5px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.actions-dropdown .dropdown-item {
+  padding: 8px 12px;
+  margin: 2px 0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  color: #cd2c2c;
+  transition: all 0.2s ease;
+}
+
+/* Style spécifique pour les actions destructives (suppression) */
+.actions-dropdown .dropdown-item.text-danger {
+  color: #dc3545 !important;
+}
+
+.actions-dropdown .dropdown-item.text-danger:hover {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545 !important;
+}
+
+/* Style pour les actions normales */
+.actions-dropdown .dropdown-item:not(.text-danger):hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+}
+
+/* Icônes dans les dropdowns d'actions */
+.actions-dropdown .dropdown-item i {
+  font-size: 1rem;
+  margin-right: 8px;
+  opacity: 0.8;
+  width: 20px;
+  text-align: center;
+}
+
+/* Séparateur dans les dropdowns d'actions */
+.actions-dropdown .dropdown-divider {
+  margin: 4px 0;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Style pour le bouton qui ouvre le dropdown */
+.actions-dropdown .dropdown-toggle {
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+.actions-dropdown .dropdown-toggle:hover {
+  background: #4f89d4;
+}
+
+/* Ajustement pour le mode sombre */
+[data-theme="dark"] .actions-dropdown .dropdown-menu {
+  background: #4f89d4;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .actions-dropdown .dropdown-item {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .actions-dropdown .dropdown-item:not(.text-danger):hover {
+  background: rgba(17, 20, 227, 0.2);
+}
+
+[data-theme="dark"] .actions-dropdown .dropdown-toggle {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .actions-dropdown .dropdown-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+
+/* Styles pour les dropdowns d'actions */
+.actions-list-dropdown .dropdown-menu {
+  background: #2c3e50;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 180px;
+}
+
+/* En-tête du dropdown d'actions */
+.actions-list-dropdown .dropdown-header {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 12px;
+}
+
+/* Items du dropdown d'actions */
+.actions-list-dropdown .dropdown-item {
+  padding: 8px 12px;
+  margin: 2px 0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #e2e8f0 !important;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.actions-list-dropdown .dropdown-item:hover {
+  background: #3d4e63;
+  transform: translateX(3px);
+}
+
+/* Action de suppression */
+.actions-list-dropdown .dropdown-item.text-danger {
+  color: #fca5a5 !important;
+}
+
+.actions-list-dropdown .dropdown-item.text-danger:hover {
+  background: #7f1d1d;
+}
+
+/* Select dropdown styles */
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 6px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #e2e8f0;
+  line-height: 36px;
+  padding-left: 12px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 36px;
+}
+
+/* Dropdown de sélection ouvert */
+.select2-container--default .select2-dropdown {
+  background: #1e293b;
+  border: 1px solid #475569;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+/* Options dans le dropdown de sélection */
+.select2-container--default .select2-results__option {
+  padding: 8px 12px;
+  color: #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background: #3d4e63;
+  color: #ffffff;
+}
+
+/* Barre de recherche dans le select */
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  background: #2c3e50;
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+
+/* Style pour les options sélectionnées dans un select multiple */
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background: #3d4e63;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #e2e8f0;
+  margin: 4px;
+}
+
+/* Bouton de suppression dans les options sélectionnées */
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  color: #94a3b8;
+  margin-right: 5px;
+  transition: color 0.2s ease;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+  color: #fca5a5;
+}
+
+/* Mode sombre spécifique pour les select */
+[data-theme="dark"] .select2-container--default .select2-selection--single,
+[data-theme="dark"] .select2-container--default .select2-selection--multiple {
+  background: #1a1a2e;
+  border-color: #2d3748;
+}
+
+[data-theme="dark"] .select2-container--default .select2-dropdown {
+  background: #1a1a2e;
+  border-color: #2d3748;
+}
+
+.actions-list-dropdown .dropdown-menu.show {
+  animation: slideInDropdown 0.2s ease forwards;
+}
+
+@keyframes slideInDropdown {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.actions-list-dropdown .dropdown-toggle {
+  background: #2c3e50;
+  border: none;
+  color: #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.actions-list-dropdown .dropdown-toggle:hover {
+  background: #3d4e63;
+}
+
+.actions-list-dropdown .dropdown-item i {
+  width: 20px;
+  margin-right: 8px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+
+.login-box {
+  background: transparent;
+}
+
+.login-box .card {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.login-box a {
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.login-box a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+
+.login-box .alert-success {
+  background: rgba(40, 167, 69, 0.2);
+  color: white;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.login-box .form-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.login-box .form-control:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.login-box .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-box .input-group-text {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-box .custom-control-label::before {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-box .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.login-box-msg {
+  color: rgb(218, 63, 63) !important;
+  font-weight: 500;
+}
+
+.login-box .alert-danger {
+background-color: rgba(220, 53, 69, 0.2);
+border-color: rgba(220, 53, 69, 0.3);
+color: #ff4d4d !important; 
+}
+
+.login-form .form-error {
+background-color: rgba(220, 53, 69, 0.2);
+border-color: rgba(220, 53, 69, 0.3);
+color: #ff4d4d !important;
+padding: 10px;
+border-radius: 5px;
+font-size: 14px;
+margin-bottom: 10px;
+}
+
+#permissions-group .table {
+background-color: #070707;
+}
+
+#permissions-group .table th {
+background-color: #36383a; 
+}
+
+#permissions-group .table td {
+background-color: #ffffff; 
+}
+
+.filtered{
+background-color: #2c3e50 !important;
+}
+
+.btn-success{
+background-color: green !important;
+}
+.btn-danger{
+background-color: red !important; 
+}

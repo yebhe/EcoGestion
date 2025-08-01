@@ -1,0 +1,43 @@
+services:
+  django:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: django_app_ecodeli_wissam
+    ports:
+      - "8000:8000"  # Exposer pour debug
+    volumes:
+      - sqlite_data:/app/db
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    environment:
+      - DEBUG=0
+      - ALLOWED_HOSTS=localhost,127.0.0.1,django
+      - DATABASE_URL=sqlite:///db/db.sqlite3
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput --clear &&
+             gunicorn --bind 0.0.0.0:8000 backend.wsgi:application"
+    networks:
+      - app-network
+
+  vue:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vue_app_ecodeli_wissam
+    ports:
+      - "80:80"
+    depends_on:
+      - django
+    networks:
+      - app-network
+
+volumes:
+  sqlite_data:
+  static_volume:
+  media_volume:
+
+networks:
+  app-network:
+    driver: bridge
